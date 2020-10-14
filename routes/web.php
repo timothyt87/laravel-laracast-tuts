@@ -54,4 +54,5 @@ Route::get('about', function () {
     ]);
 });
 
+Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index']);
 Route::get('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'show']);

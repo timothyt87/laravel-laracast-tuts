@@ -13,7 +13,7 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::latest()->get();
 
         return view('articles.home', [
             'articles' => $articles
