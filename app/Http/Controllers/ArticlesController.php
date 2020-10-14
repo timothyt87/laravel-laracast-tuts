@@ -7,7 +7,20 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
-    //
+    // 
+
+    // All Articles
+
+    public function index()
+    {
+        $articles = Article::all();
+
+        return view('articles.home', [
+            'articles' => $articles
+        ]);
+    }
+
+
     public function show($id)
     {
         $article = Article::find($id);
