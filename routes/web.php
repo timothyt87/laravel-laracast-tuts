@@ -54,5 +54,15 @@ Route::get('about', function () {
     ]);
 });
 
-Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index']);
-Route::get('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'show']);
+Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index'])->name('article.index');
+Route::post('/articles', [App\Http\Controllers\ArticlesController::class, 'store'])->name('article.store');
+Route::get('/articles/create', [App\Http\Controllers\ArticlesController::class, 'create'])->name('article.create');
+
+//Route::get('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'show']);
+// using named routes
+Route::get('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'show'])->name('article.show');
+
+
+Route::get('/articles/{article}/edit', [App\Http\Controllers\ArticlesController::class, 'edit'])->name('article.edit');
+Route::put('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'update'])->name('article.update');
+
