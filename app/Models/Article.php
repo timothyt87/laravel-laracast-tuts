@@ -60,4 +60,19 @@ class Article extends Model
     {
         return route('article.show', $this);
     }
+
+
+    /*
+     * Basic Eloquent Relationships
+     * https://laracasts.com/series/laravel-6-from-scratch/episodes/29?autoplay=true
+     * */
+
+    public function author()
+    {
+        /*
+         * the second arguments is used to override the default
+         * setting laravel use ( asuming the method name is the foreign key)
+         * */
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

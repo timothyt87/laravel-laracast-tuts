@@ -39,4 +39,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /*
+     * Basic Eloquent Relationships
+     * https://laracasts.com/series/laravel-6-from-scratch/episodes/29?autoplay=true
+     * */
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
